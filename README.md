@@ -1,5 +1,6 @@
 # Pokemon evolution cards game
-Welcome! This is a simple pokemon cards memory game made in java (and a lil bit of python).  
+Welcome! This is a simple pokemon cards memory game made in java 
+(and a lil bit of python).  
 ## Technical design
 ### folder and file structure
 ```
@@ -76,7 +77,7 @@ PokemonMatchGame/
 > [!TIP]
 > This is the recommended structure, if u have any diferent modify it and notify others.
 
-<br>
+---
 
 [**AaronMex-19**](https://github.com/AaronMex-19) will create the classes of the `model/` folder. Theres the UML diagram of every class:
 
@@ -97,5 +98,13 @@ PokemonMatchGame/
 
 > [!TIP] 
 > Don't forget to override the toString() method for every class.
+
+### Troubleshooting
+Make sure to have at least java 17 LTS (no problem if u have the latest version) installed in ur machine and configured correctly the path in your IDE (e.g VSCode).
+
+the `src/` folder should be the default source folder. If u present problems on VSCode search on settings:  
+> Control + ',' --> "java source paths" --> Add item --> 'src'
+
+if u have another IDE just look up on the internet.
 
 If u have doubts, don't hesitate to adress [**N_sser**](https://github.com/N-sser).
