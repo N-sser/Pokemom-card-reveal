@@ -1,4 +1,4 @@
-package foo.pokemongame.model;
+package pokemongame.model;
 
 public class Pokemon {
     private final String name;

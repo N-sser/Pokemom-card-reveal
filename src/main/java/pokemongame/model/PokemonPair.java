@@ -1,4 +1,4 @@
-package foo.pokemongame.model;
+package pokemongame.model;
 
 public class PokemonPair {
     private final int pairId;
