@@ -16,11 +16,11 @@ public class Card {
     // Getters
     public Pokemon getPokemon() { return pokemon; }
     public int getPairId() { return pairId; }
-    public boolean getIsRevealed() { return isRevealed; }
-    public boolean getIsMatched() { return isMatched; }
+    public boolean IsRevealed() { return isRevealed; }
+    public boolean IsMatched() { return isMatched; }
 
     // Setters
     public void hide() { this.isRevealed = false; }
     public void reveal() { this.isRevealed = true; }
-    public void setMatched() { this.isMatched = true; }
+    public void setMatched(boolean m) { this.isMatched = m; }
 }

@@ -25,6 +25,54 @@ public class GameEngine {
         Collections.shuffle(cards);
     }
     
+    public void revealCard(int index){
+        Card card = cards.get(index);
+
+        if (card.IsMatched() || card.IsRevealed()) {
+            return;
+        }
+
+        if (firstRevealed == null) {
+            firstRevealed = card;
+            card.reveal();
+        } else if (secondRevealed == null && card != firstRevealed) { 
+            secondRevealed = card;
+            card.reveal();
+        }
+    }
+    
+    public boolean checkMatch() {
+        int first = firstRevealed.getPairId();
+        int second = secondRevealed.getPairId();
+        
+        if (first == second) {
+            matchesFound++;
+            firstRevealed.setMatched(true);
+            secondRevealed.setMatched(true);
+            // Reset cards state for next check in the engine
+            firstRevealed = null; 
+            secondRevealed = null; 
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void hideUnmatched() {
+        if (firstRevealed != null) {
+            firstRevealed.hide();
+            firstRevealed = null;
+        } 
+        if (secondRevealed != null) {
+            secondRevealed.hide();
+            secondRevealed = null;
+        }
+    }
+
+    public boolean isGameWon() {
+        return matchesFound == 4; // Its hardcoded
+    }
+
     // Getters
     public List<Card> getCards() { return cards; }
     public int getMatchesFound() { return matchesFound; }

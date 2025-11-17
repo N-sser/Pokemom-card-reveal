@@ -11,7 +11,6 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to another Pokemon Evolution Cards Game!");
 
-        // Using the librarie Gson or jackson
         PokemonDataLoader jsonPairs = new PokemonDataLoader();
         List<PokemonPair> pairs = jsonPairs.loadPokemonPairs();
         
@@ -26,5 +25,6 @@ public class Main {
             System.out.println("Loaded: " + pair.getPokemon1().getName() + 
                              " → " + pair.getPokemon2().getName());
         }
+
     }
 }
