@@ -1,8 +1,8 @@
 package foo.pokemongame.model;
 
 public class Card {
-    private int pairId;
-    private Pokemon pokemon;
+    private final int pairId;
+    private final Pokemon pokemon;
     private boolean isRevealed;
     private boolean isMatched;
 
@@ -13,31 +13,14 @@ public class Card {
         this.isMatched = false;
     }
 
-    public Pokemon getPokemon() {
-        return pokemon;
-    }
+    // Getters
+    public Pokemon getPokemon() { return pokemon; }
+    public int getPairId() { return pairId; }
+    public boolean getIsRevealed() { return isRevealed; }
+    public boolean getIsMatched() { return isMatched; }
 
-    public int getPairId() {
-        return pairId;
-    }
-
-    public boolean getIsRevealed() {
-        return isRevealed;
-    }
-
-    public boolean getIsMatched() {
-        return isMatched;
-    }
-
-    public void hide() {
-        this.isRevealed = false;
-    }
-
-    public void reveal() {
-        this.isRevealed = true;
-    }
-
-    public void setMatched() {
-        this.isMatched = true;
-    }
+    // Setters
+    public void hide() { this.isRevealed = false; }
+    public void reveal() { this.isRevealed = true; }
+    public void setMatched() { this.isMatched = true; }
 }

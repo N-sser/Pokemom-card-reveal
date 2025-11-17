@@ -1,8 +1,8 @@
 package foo.pokemongame;
 
+import foo.pokemongame.model.*;
 import foo.pokemongame.data.*;
 import foo.pokemongame.logic.*;
-import foo.pokemongame.model.*;
 import foo.pokemongame.ui.*;
 
 public class Main {
