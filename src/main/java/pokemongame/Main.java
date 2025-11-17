@@ -4,24 +4,32 @@ import pokemongame.model.*;
 import pokemongame.data.*;
 import pokemongame.logic.*;
 import pokemongame.ui.*;
+
+import java.io.IOException;
 import java.util.List;
 
-import com.google.gson.Gson;
-
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Welcome to another Pokemon Evolution Cards Game!");
+
         // Using the librarie Gson or jackson
-        System.out.println("🐛 Debug: Starting Pokemon Game...");
+        PokemonDataLoader jsonPairs = new PokemonDataLoader();
+        List<PokemonPair> pairs = jsonPairs.loadPokemonPairs();
         
-        // Simple Gson test
-        Gson gson = new Gson();
-        String testJson = "{\"name\":\"Pikachu\",\"type\":\"Electric\"}";
-        System.out.println("Gson test: " + gson.fromJson(testJson, Object.class));
+        GameEngine engine = new GameEngine(pairs);
+
+        var ress = engine.getCards();
+        var ress1 = engine.getMatchesFound();
         
-        System.out.println("✅ Everything works! Ready to code!");
+        System.out.println(ress);
+        System.out.println(ress1);
+        for (PokemonPair pair : pairs) {
+            System.out.println("Loaded: " + pair.getPokemon1().getName() + 
+                             " → " + pair.getPokemon2().getName());
+        }
+
         // Hardcoded
-        List<PokemonPair> pairs = List.of(
+        List<PokemonPair> hardPairs = List.of(
             new PokemonPair(0, 
                 new Pokemon("Charmander", 4, "images/charmander.png"),
                 new Pokemon("Charmeleon", 5, "images/charmeleon.png")),
@@ -37,12 +45,12 @@ public class Main {
         );
 
         // Testing the game engine to work hardcoded
-        GameEngine engineHard = new GameEngine(pairs);
-        
-        var res = engineHard.getCards();
-        var res1 = engineHard.getMatchesFound();
-        System.out.println(res);
-        System.out.println(res1);
-        System.out.println("Working directory: " + System.getProperty("user.dir"));
+        //GameEngine engineHard = new GameEngine(hardPairs);
+        //
+        //var res = engineHard.getCards();
+        //var res1 = engineHard.getMatchesFound();
+
+        //System.out.println(res);
+        //System.out.println(res1);
     }
 }
