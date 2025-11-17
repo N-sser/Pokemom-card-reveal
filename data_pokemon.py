@@ -1,14 +1,12 @@
 import json
 import os
 
-
 base_path = os.path.dirname(os.path.abspath(__file__))
 
 # Carpeta resources/data
 resources_path = os.path.join(base_path, "resources")
 data_path = os.path.join(resources_path, "data")
 os.makedirs(data_path, exist_ok=True)
-
 
 pokemon_data = {
     "evolutionPairs": [
@@ -63,9 +61,7 @@ pokemon_data = {
     ]
 }
 
-
 json_path = os.path.join(data_path, "pokemon_pairs.json")
-
 
 with open(json_path, "w", encoding="utf-8") as file:
     json.dump(pokemon_data, file, indent=4, ensure_ascii=False)
