@@ -14,48 +14,48 @@ pokemon_data = {
             "stage1": {
                 "name": "Charmander",
                 "id": 4,
-                "imagePath": "images/charmander.png"
+                "imagePath": "/images/charmander.png"
             },
             "stage2": {
                 "name": "Charmeleon",
                 "id": 5,
-                "imagePath": "images/charmeleon.png"
+                "imagePath": "/images/charmeleon.png"
             }
         },
         {
             "stage1": {
                 "name": "Bulbasaur",
                 "id": 1,
-                "imagePath": "images/bulbasaur.png"
+                "imagePath": "/images/bulbasaur.png"
             },
             "stage2": {
                 "name": "Ivysaur",
                 "id": 2,
-                "imagePath": "images/ivysaur.png"
+                "imagePath": "/images/ivysaur.png"
             }
         },
         {
             "stage1": {
                 "name": "Squirtle",
                 "id": 7,
-                "imagePath": "images/squirtle.png"
+                "imagePath": "/images/squirtle.png"
             },
             "stage2": {
                 "name": "Wartortle",
                 "id": 8,
-                "imagePath": "images/wartortle.png"
+                "imagePath": "/images/wartortle.png"
             }
         },
         {
             "stage1": {
                 "name": "Pikachu",
                 "id": 25,
-                "imagePath": "images/pikachu.png"
+                "imagePath": "/images/pikachu.png"
             },
             "stage2": {
                 "name": "Raichu",
                 "id": 26,
-                "imagePath": "images/raichu.png"
+                "imagePath": "/images/raichu.png"
             }
         }
     ]

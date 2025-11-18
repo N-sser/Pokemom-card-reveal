@@ -4,20 +4,22 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
 import javax.swing.Timer;
+import javax.swing.UIManager;
 
 import pokemongame.logic.GameEngine;
 import pokemongame.model.Card;
+import pokemongame.model.Pokemon;
 
 public class GameWindow {
     private JFrame root;
@@ -36,7 +38,7 @@ public class GameWindow {
     private void setupFrame() {
         root = new JFrame("Pokemon evolution Cards Game"); 
         root.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        root.setSize(800, 600);
+        root.setSize(900, 600);
         root.setLayout(new BorderLayout());
         //root.setIconImage(null);
     }
@@ -86,7 +88,8 @@ public class GameWindow {
         engine.revealCard(index);
         
         // UPdate the UI
-        cardButtons.get(index).setText(card.getPokemon().getName());
+        // cardButtons.get(index).setText(card.getPokemon().getName());
+        setCardImage(cardButtons.get(index), card.getPokemon());
         
         // Check if we have two cards revealed
         if (engine.canCheckMatch()) {
@@ -116,6 +119,22 @@ public class GameWindow {
         }
     }
     
+    private void setCardImage(JButton button, Pokemon pokemon) {
+        try {
+            // Load and scale image in one line
+            java.net.URL imageURL = getClass().getResource(pokemon.getImagePath());
+            if (imageURL != null) {
+                ImageIcon icon = new ImageIcon(imageURL);
+                Image img = icon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+                button.setIcon(new ImageIcon(img));
+                button.setText("");
+            }
+        } catch (Exception e) {
+            // If it fails, just show text
+            button.setText(pokemon.getName());
+        }
+    }
+
     private void setButtons(boolean b) {
         for (JButton c : cardButtons) {
             c.setEnabled(b);
@@ -142,6 +161,7 @@ public class GameWindow {
         for (int i = 0; i < cards.size(); i++) {
             Card card = cards.get(i);
             if (!card.IsRevealed()) {
+                cardButtons.get(i).setIcon(null);
                 cardButtons.get(i).setText("?");
                 cardButtons.get(i).setBorder(UIManager.getBorder("Button.border"));
                 }
