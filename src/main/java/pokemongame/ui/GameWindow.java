@@ -18,18 +18,19 @@ import javax.swing.Timer;
 import javax.swing.UIManager;
 
 import pokemongame.logic.GameEngine;
-import pokemongame.model.Card;
-import pokemongame.model.Pokemon;
+import pokemongame.model.*;
 
 public class GameWindow {
     private JFrame root;
     private JButton playButton;
     private JPanel cardPanel;
     private List<JButton> cardButtons;
+    private List<PokemonPair> pairs;
     private GameEngine engine;
     
-    public GameWindow(GameEngine e) {
-        this.engine = e;
+    public GameWindow(List<PokemonPair> pairs) {
+        this.pairs = pairs;
+        this.engine = new GameEngine(pairs);
         setupFrame();
         setupPlayButton();
         setupCardPanel();
@@ -59,6 +60,7 @@ public class GameWindow {
     
     private void startGame() {
         System.out.println("Game should've start now huh");
+        this.engine = new GameEngine(pairs);
         createCardButtons();
         playButton.setEnabled(false); // Disable
     }
@@ -170,7 +172,6 @@ public class GameWindow {
 
     private void showWinMessage() {
         for (JButton c : cardButtons) {
-            c.setText("WINNER!");
             c.setBackground(Color.GREEN);
         }
 

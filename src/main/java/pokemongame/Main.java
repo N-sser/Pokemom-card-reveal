@@ -2,7 +2,6 @@ package pokemongame;
 
 import pokemongame.model.*;
 import pokemongame.data.*;
-import pokemongame.logic.*;
 import pokemongame.ui.*;
 
 import java.util.List;
@@ -13,11 +12,9 @@ public class Main {
 
         PokemonDataLoader jsonPairs = new PokemonDataLoader();
         List<PokemonPair> pairs = jsonPairs.loadPokemonPairs();
-        
-        GameEngine engine = new GameEngine(pairs);
 
         javax.swing.SwingUtilities.invokeLater(() -> {
-            GameWindow window = new GameWindow(engine); // Pass engine to UI
+            GameWindow window = new GameWindow(pairs); // Pass engine to UI
             window.show();
         });
         
