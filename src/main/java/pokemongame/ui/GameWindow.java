@@ -120,6 +120,7 @@ public class GameWindow {
         for (JButton c : cardButtons) {
             c.setEnabled(b);
         }
+        cardPanel.repaint();
     }
 
     private void showCardFeedback() {
@@ -148,6 +149,11 @@ public class GameWindow {
     }
 
     private void showWinMessage() {
+        for (JButton c : cardButtons) {
+            c.setText("WINNER!");
+            c.setBackground(Color.GREEN);
+        }
+
         JOptionPane.showMessageDialog(
             root,
             "You won! All Pokemon evolved! 🎉\nMatches found: " + engine.getMatchesFound(),
