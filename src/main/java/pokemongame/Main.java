@@ -16,15 +16,11 @@ public class Main {
         
         GameEngine engine = new GameEngine(pairs);
 
-        var ress = engine.getCards();
-        var ress1 = engine.getMatchesFound();
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            GameWindow window = new GameWindow(engine); // Pass engine to UI
+            window.show();
+        });
         
-        System.out.println(ress);
-        System.out.println(ress1);
-        for (PokemonPair pair : pairs) {
-            System.out.println("Loaded: " + pair.getPokemon1().getName() + 
-                             " → " + pair.getPokemon2().getName());
-        }
-
+        System.out.println("Game has started. Enjoy!");
     }
 }

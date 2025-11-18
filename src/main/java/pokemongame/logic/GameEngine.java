@@ -41,6 +41,14 @@ public class GameEngine {
         }
     }
     
+    public boolean canCheckMatch() {
+        if (firstRevealed != null && secondRevealed != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public boolean checkMatch() {
         int first = firstRevealed.getPairId();
         int second = secondRevealed.getPairId();
