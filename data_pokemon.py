@@ -3,7 +3,7 @@ import os
 
 base_path = os.path.dirname(os.path.abspath(__file__))
 
-# Carpeta resources/data
+
 resources_path = os.path.join(base_path, "src/main/resources")
 data_path = os.path.join(resources_path, "data")
 os.makedirs(data_path, exist_ok=True)
